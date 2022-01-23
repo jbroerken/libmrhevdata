@@ -113,7 +113,7 @@ set(PUBLIC_API_DIR_PATH "${INCLUDE_DIR_PATH}/libmrhevdata")
 #  ------
 #  The target(s) to build.
 ###
-add_library(libmrhevdata_Shared SHARED ${SRC_LIST_GLOBAL}
+add_library(libmrhevdata_Shared SHARED ${SRC_LIST_BASE}
                                        ${SRC_LIST_EVENT}
                                        ${SRC_LIST_EVENT_V1})
 set_target_properties(libmrhevdata_Shared
