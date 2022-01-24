@@ -41,8 +41,14 @@ extern "C"
     // Types
     //*************************************************************************************
 
+    /**
+     *  Events
+     */
+    
+    // User
     typedef struct MRH_EvD_Base_CustomCommand_t MRH_EvD_C_CustomCommand_U;
     
+    // Service
     typedef struct MRH_EvD_Base_ServiceAvail_S_t MRH_EvD_C_ServiceAvail_S;
     typedef struct MRH_EvD_Base_CustomCommand_t MRH_EvD_C_CustomCommand_S;
     

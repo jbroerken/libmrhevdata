@@ -41,10 +41,18 @@ extern "C"
     // Types
     //*************************************************************************************
 
+    /**
+     *  Event Data
+     */
+    
     struct MRH_EvD_Sys_EventID_t
     {
         MRH_Uint32 u32_Type;
     };
+    
+    /**
+     *  Events
+     */
     
     typedef struct MRH_EvD_Sys_EventID_t MRH_EvD_Sys_PermissionDenied;
     typedef struct MRH_EvD_Sys_EventID_t MRH_EvD_Sys_PasswordRequired;

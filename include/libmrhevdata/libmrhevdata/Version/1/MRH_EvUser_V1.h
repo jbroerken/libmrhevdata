@@ -41,6 +41,10 @@ extern "C"
     // Types
     //*************************************************************************************
 
+    /**
+     *  Event Data
+     */
+    
     struct MRH_EvD_U_GetLocation_S_t
     {
         MRH_Uint8 u8_Result;
@@ -50,8 +54,14 @@ extern "C"
         MRH_Sfloat64 f64_Facing;
     };
     
+    /**
+     *  Events
+     */
+    
+    // User
     typedef struct MRH_EvD_Base_CustomCommand_t MRH_EvD_U_CustomCommand_U;
     
+    // Service
     typedef struct MRH_EvD_Base_ServiceAvail_S_t MRH_EvD_U_ServiceAvail_S;
     typedef struct MRH_EvD_Base_Result_t MRH_EvD_U_AccessDocuments_S;
     typedef struct MRH_EvD_Base_Result_t MRH_EvD_U_AccessPictures_S;

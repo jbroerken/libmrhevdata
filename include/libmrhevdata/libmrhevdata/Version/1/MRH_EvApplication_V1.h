@@ -41,6 +41,10 @@ extern "C"
     // Types
     //*************************************************************************************
 
+    /**
+     *  Event Data
+     */
+    
     struct MRH_EvD_A_LaunchSOA_t
     {
         MRH_Uint32 u32_PackagePathLen;
@@ -60,10 +64,16 @@ extern "C"
         char* p_LaunchInput;
     };
     
+    /**
+     *  Events
+     */
+    
+    // User
     typedef struct MRH_EvD_A_LaunchSOA_t MRH_EvD_A_LaunchSOA_U;
     typedef struct MRH_EvD_A_LaunchSOATimer_t MRH_EvD_A_LaunchSOATimer_U;
     typedef struct MRH_EvD_Base_CustomCommand_t MRH_EvD_A_CustomCommand_U;
     
+    // Service
     typedef struct MRH_EvD_Base_ServiceAvail_S_t MRH_EvD_A_ServiceAvail_S;
     typedef struct MRH_EvD_A_LaunchSOA_t MRH_EvD_A_LaunchSOA_S;
     typedef struct MRH_EvD_A_LaunchSOATimer_t MRH_EvD_A_LaunchSOATimer_S;

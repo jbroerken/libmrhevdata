@@ -49,6 +49,10 @@ extern "C"
     // Types
     //*************************************************************************************
 
+    /**
+     *  Event Data
+     */
+    
     struct MRH_EvD_N_Create_U_t
     {
         MRH_Uint64 u64_TriggerTimepointS;
@@ -78,11 +82,17 @@ extern "C"
         char p_String[MRH_EVD_N_STRING_GET_BUFFER_MAX_TERMINATED];
     };
     
+    /**
+     *  Events
+     */
+    
+    // User
     typedef struct MRH_EvD_N_Create_U_t MRH_EvD_N_CreateApp_U;
     typedef struct MRH_EvD_N_Create_U_t MRH_EvD_N_CreateService_U;
     typedef struct MRH_EvD_N_Destroy_U_t MRH_EvD_N_DestroyApp_U;
     typedef struct MRH_EvD_Base_CustomCommand_t MRH_EvD_N_CustomCommand_U;
     
+    // Service
     typedef struct MRH_EvD_Base_ServiceAvail_S_t MRH_EvD_N_ServiceAvail_S;
     typedef struct MRH_EvD_N_Create_S_t MRH_EvD_N_CreateApp_S;
     typedef struct MRH_EvD_N_Destroy_S_t MRH_EvD_N_DestroyApp_S;

@@ -45,15 +45,25 @@ extern "C"
     // Types
     //*************************************************************************************
 
+    /**
+     *  Event Data
+     */
+    
     struct MRH_EvD_P_String_U_t
     {
         char p_String[MRH_EVD_P_STRING_BUFFER_MAX_TERMINATED];
     };
     
+    /**
+     *  Events
+     */
+    
+    // User
     typedef struct MRH_EvD_P_String_U_t MRH_EvD_P_Check_U;
     typedef struct MRH_EvD_P_String_U_t MRH_EvD_P_Set_U;
     typedef struct MRH_EvD_Base_CustomCommand_t MRH_EvD_P_CustomCommand_U;
     
+    // Service
     typedef struct MRH_EvD_Base_ServiceAvail_S_t MRH_EvD_P_ServiceAvail_S;
     typedef struct MRH_EvD_Base_Result_t MRH_EvD_P_Check_S;
     typedef struct MRH_EvD_Base_Result_t MRH_EvD_P_Set_S;

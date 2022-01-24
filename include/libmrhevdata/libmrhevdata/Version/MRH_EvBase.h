@@ -41,6 +41,25 @@ extern "C"
     // Types
     //*************************************************************************************
 
+    /**
+     *  Event Values
+     */
+    
+    typedef enum
+    {
+        MRH_EVD_BASE_RESULT_SUCCESS = 0,
+        MRH_EVD_BASE_RESULT_FAILED = 1,
+        
+        MRH_EVD_BASE_RESULT_MAX = MRH_EVD_BASE_RESULT_FAILED,
+        
+        MRH_EVD_BASE_RESULT_COUNT = MRH_EVD_BASE_RESULT_MAX + 1
+        
+    }MRH_EvD_Base_Result;
+    
+    /**
+     *  Event Data
+     */
+    
     // Service Available
     struct MRH_EvD_Base_ServiceAvail_S_t
     {

@@ -44,6 +44,25 @@ extern "C"
     //*************************************************************************************
     // Types
     //*************************************************************************************
+    
+    /**
+     *  Event Values
+     */
+    
+    typedef enum
+    {
+        MRH_EVD_S_STRING_UNFINISHED = 0,
+        MRH_EVD_S_STRING_END = 1,
+        
+        MRH_EVD_S_STRING_TYPE_MAX = MRH_EVD_S_STRING_END,
+        
+        MRH_EVD_S_STRING_TYPE_COUNT = MRH_EVD_S_STRING_TYPE_MAX + 1
+        
+    }MRH_EvD_S_StringType;
+    
+    /**
+     *  Event Data
+     */
 
     struct MRH_EvD_S_String_U_t
     {
@@ -64,9 +83,15 @@ extern "C"
         MRH_Uint8 u8_Method;
     };
     
+    /**
+     *  Events
+     */
+    
+    // User
     typedef struct MRH_EvD_S_String_U_t MRH_EvD_S_String_U;
     typedef struct MRH_EvD_Base_CustomCommand_t MRH_EvD_S_CustomCommand_U;
     
+    // Service
     typedef struct MRH_EvD_Base_ServiceAvail_S_t MRH_EvD_S_ServiceAvail_S;
     typedef struct MRH_EvD_S_String_S_t MRH_EvD_S_String_S;
     typedef struct MRH_EvD_S_GetMethod_S_t MRH_EvD_S_GetMethod_S;
