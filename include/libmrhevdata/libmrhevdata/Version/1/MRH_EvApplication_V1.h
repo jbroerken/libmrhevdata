@@ -31,6 +31,10 @@
 // Project
 #include "../MRH_EvBase.h"
 
+// Pre-defined
+#define MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX MRH_EVENT_DATA_SIZE_MAX - 20 // 3 * Uint32 + 1 * Uint64
+#define MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX_TERMINATED (MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX + 1)
+
 
 #ifdef __cplusplus
 extern "C"
@@ -47,21 +51,17 @@ extern "C"
     
     struct MRH_EvD_A_LaunchSOA_t
     {
-        MRH_Uint32 u32_PackagePathLen;
-        MRH_Uint32 u32_LaunchInputLen;
+        char p_PackagePath[MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX_TERMINATED];
+        char p_LaunchInput[MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX_TERMINATED];
         MRH_Sint32 s32_LaunchCommandID;
-        char* p_PackagePath;
-        char* p_LaunchInput;
     };
     
     struct MRH_EvD_A_LaunchSOATimer_t
     {
-        MRH_Uint32 u32_PackagePathLen;
-        MRH_Uint32 u32_LaunchInputLen;
+        char p_PackagePath[MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX_TERMINATED];
+        char p_LaunchInput[MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX_TERMINATED];
         MRH_Sint32 s32_LaunchCommandID;
         MRH_Uint64 u64_LaunchTimepointS;
-        char* p_PackagePath;
-        char* p_LaunchInput;
     };
     
     /**

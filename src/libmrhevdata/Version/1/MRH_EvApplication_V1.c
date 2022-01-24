@@ -56,15 +56,11 @@ int MRH_EVD_A_ToEvent_V1(MRH_Event* p_Event, MRH_Uint32 u32_Type, const void* p_
         {
             struct MRH_EvD_A_LaunchSOA_t* p_Cast = (struct MRH_EvD_A_LaunchSOA_t*)p_Data;
             
-            if ((p_Cast->u32_PackagePathLen > 0 && p_Cast->p_PackagePath == NULL) ||
-                (p_Cast->u32_LaunchInputLen > 0 && p_Cast->p_LaunchInput == NULL))
-            {
-                return -1;
-            }
-            
+            // @NOTE: The full possible string length is used for static length of
+            //        both strings. The event can only hold this size once for both
             u32_DataSize = 12; // 2 * Uint32 + 1 * Sint32
-            u32_DataSize += p_Cast->u32_PackagePathLen;
-            u32_DataSize += p_Cast->u32_LaunchInputLen;
+            u32_DataSize += strnlen(p_Cast->p_PackagePath, MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX);
+            u32_DataSize += strnlen(p_Cast->p_LaunchInput, MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX);
             
             if (u32_DataSize > MRH_EVENT_DATA_SIZE_MAX)
             {
@@ -78,15 +74,9 @@ int MRH_EVD_A_ToEvent_V1(MRH_Event* p_Event, MRH_Uint32 u32_Type, const void* p_
         {
             struct MRH_EvD_A_LaunchSOATimer_t* p_Cast = (struct MRH_EvD_A_LaunchSOATimer_t*)p_Data;
             
-            if ((p_Cast->u32_PackagePathLen > 0 && p_Cast->p_PackagePath == NULL) ||
-                (p_Cast->u32_LaunchInputLen > 0 && p_Cast->p_LaunchInput == NULL))
-            {
-                return -1;
-            }
-            
             u32_DataSize = 20; // 2 * Uint32 + 1 * Sint32 + 1 * Uint64
-            u32_DataSize += p_Cast->u32_PackagePathLen;
-            u32_DataSize += p_Cast->u32_LaunchInputLen;
+            u32_DataSize += strnlen(p_Cast->p_PackagePath, MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX);
+            u32_DataSize += strnlen(p_Cast->p_LaunchInput, MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX);
             
             if (u32_DataSize > MRH_EVENT_DATA_SIZE_MAX)
             {
@@ -162,18 +152,21 @@ int MRH_EVD_A_ToEvent_V1(MRH_Event* p_Event, MRH_Uint32 u32_Type, const void* p_
             {
                 struct MRH_EvD_A_LaunchSOA_t* p_Cast = (struct MRH_EvD_A_LaunchSOA_t*)p_Data;
                 
-                memcpy(&(p_Event->p_Data[0]), &(p_Cast->u32_PackagePathLen), 4);
-                memcpy(&(p_Event->p_Data[4]), &(p_Cast->u32_LaunchInputLen), 4);
+                MRH_Uint32 u32_PackagePathLen = strnlen(p_Cast->p_PackagePath, MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX);
+                MRH_Uint32 u32_LaunchInputLen = strnlen(p_Cast->p_LaunchInput, MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX);
+                
+                memcpy(&(p_Event->p_Data[0]), &u32_PackagePathLen, 4);
+                memcpy(&(p_Event->p_Data[4]), &u32_LaunchInputLen, 4);
                 memcpy(&(p_Event->p_Data[8]), &(p_Cast->s32_LaunchCommandID), 4);
                 
-                if (p_Cast->u32_PackagePathLen > 0)
+                if (u32_PackagePathLen > 0)
                 {
-                    memcpy(&(p_Event->p_Data[12]), (p_Cast->p_PackagePath), p_Cast->u32_PackagePathLen);
+                    memcpy(&(p_Event->p_Data[12]), (p_Cast->p_PackagePath), u32_PackagePathLen);
                 }
                 
-                if (p_Cast->u32_LaunchInputLen > 0)
+                if (u32_LaunchInputLen > 0)
                 {
-                    memcpy(&(p_Event->p_Data[12 + p_Cast->u32_PackagePathLen]), (p_Cast->p_LaunchInput), p_Cast->u32_LaunchInputLen);
+                    memcpy(&(p_Event->p_Data[12 + u32_PackagePathLen]), (p_Cast->p_LaunchInput), u32_LaunchInputLen);
                 }
                 break;
             }
@@ -183,19 +176,22 @@ int MRH_EVD_A_ToEvent_V1(MRH_Event* p_Event, MRH_Uint32 u32_Type, const void* p_
             {
                 struct MRH_EvD_A_LaunchSOATimer_t* p_Cast = (struct MRH_EvD_A_LaunchSOATimer_t*)p_Data;
                 
-                memcpy(&(p_Event->p_Data[0]), &(p_Cast->u32_PackagePathLen), 4);
-                memcpy(&(p_Event->p_Data[4]), &(p_Cast->u32_LaunchInputLen), 4);
+                MRH_Uint32 u32_PackagePathLen = strnlen(p_Cast->p_PackagePath, MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX);
+                MRH_Uint32 u32_LaunchInputLen = strnlen(p_Cast->p_LaunchInput, MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX);
+                
+                memcpy(&(p_Event->p_Data[0]), &u32_PackagePathLen, 4);
+                memcpy(&(p_Event->p_Data[4]), &u32_LaunchInputLen, 4);
                 memcpy(&(p_Event->p_Data[8]), &(p_Cast->s32_LaunchCommandID), 4);
                 memcpy(&(p_Event->p_Data[12]), &(p_Cast->u64_LaunchTimepointS), 8);
                 
-                if (p_Cast->u32_PackagePathLen > 0)
+                if (u32_PackagePathLen > 0)
                 {
-                    memcpy(&(p_Event->p_Data[20]), (p_Cast->p_PackagePath), p_Cast->u32_PackagePathLen);
+                    memcpy(&(p_Event->p_Data[20]), (p_Cast->p_PackagePath), u32_PackagePathLen);
                 }
                 
-                if (p_Cast->u32_LaunchInputLen > 0)
+                if (u32_LaunchInputLen > 0)
                 {
-                    memcpy(&(p_Event->p_Data[20 + p_Cast->u32_PackagePathLen]), (p_Cast->p_LaunchInput), p_Cast->u32_LaunchInputLen);
+                    memcpy(&(p_Event->p_Data[20 + u32_PackagePathLen]), (p_Cast->p_LaunchInput), u32_LaunchInputLen);
                 }
                 break;
             }
@@ -277,43 +273,24 @@ int MRH_EVD_A_ToData_V1(void* p_Data, MRH_Uint32 u32_Type, const MRH_Event* p_Ev
         {
             struct MRH_EvD_A_LaunchSOA_t* p_Cast = (struct MRH_EvD_A_LaunchSOA_t*)p_Data;
             
-            memcpy(&(p_Cast->u32_PackagePathLen), &(p_Event->p_Data[0]), 4);
-            memcpy(&(p_Cast->u32_LaunchInputLen), &(p_Event->p_Data[4]), 4);
+            MRH_Uint32 u32_PackagePathLen;
+            MRH_Uint32 u32_LaunchInputLen;
+            
+            memcpy(&u32_PackagePathLen, &(p_Event->p_Data[0]), 4);
+            memcpy(&u32_LaunchInputLen, &(p_Event->p_Data[4]), 4);
             memcpy(&(p_Cast->s32_LaunchCommandID), &(p_Event->p_Data[8]), 4);
             
-            if (p_Cast->u32_PackagePathLen > 0)
+            memset((p_Cast->p_PackagePath), '\0', MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX_TERMINATED);
+            memset((p_Cast->p_LaunchInput), '\0', MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX_TERMINATED);
+            
+            if (u32_PackagePathLen > 0)
             {
-                if (p_Cast->p_PackagePath != NULL)
-                {
-                    free(p_Cast->p_PackagePath);
-                }
-                
-                if ((p_Cast->p_PackagePath = (char*)malloc(p_Cast->u32_PackagePathLen + 1)) == NULL)
-                {
-                    return -1;
-                }
-                
-                memcpy((p_Cast->p_PackagePath), &(p_Event->p_Data[12]), p_Cast->u32_PackagePathLen);
-                p_Cast->p_PackagePath[p_Cast->u32_PackagePathLen] = '\0';
+                memcpy((p_Cast->p_PackagePath), &(p_Event->p_Data[12]), u32_PackagePathLen);
             }
             
-            if (p_Cast->u32_LaunchInputLen > 0)
+            if (u32_LaunchInputLen > 0)
             {
-                if (p_Cast->p_LaunchInput != NULL)
-                {
-                    free(p_Cast->p_PackagePath);
-                }
-                
-                if ((p_Cast->p_LaunchInput = (char*)malloc(p_Cast->u32_LaunchInputLen + 1)) == NULL)
-                {
-                    free(p_Cast->p_PackagePath);
-                    p_Cast->p_PackagePath = NULL;
-                    
-                    return -1;
-                }
-                
-                memcpy((p_Cast->p_LaunchInput), &(p_Event->p_Data[12 + p_Cast->u32_PackagePathLen]), p_Cast->u32_LaunchInputLen);
-                p_Cast->p_LaunchInput[p_Cast->u32_LaunchInputLen] = '\0';
+                memcpy((p_Cast->p_LaunchInput), &(p_Event->p_Data[12 + u32_PackagePathLen]), u32_LaunchInputLen);
             }
             
             return 0;
@@ -324,44 +301,25 @@ int MRH_EVD_A_ToData_V1(void* p_Data, MRH_Uint32 u32_Type, const MRH_Event* p_Ev
         {
             struct MRH_EvD_A_LaunchSOATimer_t* p_Cast = (struct MRH_EvD_A_LaunchSOATimer_t*)p_Data;
             
-            memcpy(&(p_Cast->u32_PackagePathLen), &(p_Event->p_Data[0]), 4);
-            memcpy(&(p_Cast->u32_LaunchInputLen), &(p_Event->p_Data[4]), 4);
+            MRH_Uint32 u32_PackagePathLen;
+            MRH_Uint32 u32_LaunchInputLen;
+            
+            memcpy(&u32_PackagePathLen, &(p_Event->p_Data[0]), 4);
+            memcpy(&u32_LaunchInputLen, &(p_Event->p_Data[4]), 4);
             memcpy(&(p_Cast->s32_LaunchCommandID), &(p_Event->p_Data[8]), 4);
             memcpy(&(p_Cast->u64_LaunchTimepointS), &(p_Event->p_Data[12]), 8);
             
-            if (p_Cast->u32_PackagePathLen > 0)
+            memset((p_Cast->p_PackagePath), '\0', MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX_TERMINATED);
+            memset((p_Cast->p_LaunchInput), '\0', MRH_EVD_A_STRING_LAUNCH_BUFFER_MAX_TERMINATED);
+            
+            if (u32_PackagePathLen > 0)
             {
-                if (p_Cast->p_PackagePath != NULL)
-                {
-                    free(p_Cast->p_PackagePath);
-                }
-                
-                if ((p_Cast->p_PackagePath = (char*)malloc(p_Cast->u32_PackagePathLen + 1)) == NULL)
-                {
-                    return -1;
-                }
-                
-                memcpy((p_Cast->p_PackagePath), &(p_Event->p_Data[20]), p_Cast->u32_PackagePathLen);
-                p_Cast->p_PackagePath[p_Cast->u32_PackagePathLen] = '\0';
+                memcpy((p_Cast->p_PackagePath), &(p_Event->p_Data[20]), u32_PackagePathLen);
             }
             
-            if (p_Cast->u32_LaunchInputLen > 0)
+            if (u32_LaunchInputLen > 0)
             {
-                if (p_Cast->p_LaunchInput != NULL)
-                {
-                    free(p_Cast->p_PackagePath);
-                }
-                
-                if ((p_Cast->p_LaunchInput = (char*)malloc(p_Cast->u32_LaunchInputLen + 1)) == NULL)
-                {
-                    free(p_Cast->p_PackagePath);
-                    p_Cast->p_PackagePath = NULL;
-                    
-                    return -1;
-                }
-                
-                memcpy((p_Cast->p_LaunchInput), &(p_Event->p_Data[20 + p_Cast->u32_PackagePathLen]), p_Cast->u32_LaunchInputLen);
-                p_Cast->p_LaunchInput[p_Cast->u32_LaunchInputLen] = '\0';
+                memcpy((p_Cast->p_LaunchInput), &(p_Event->p_Data[20 + u32_PackagePathLen]), u32_LaunchInputLen);
             }
             
             return 0;
