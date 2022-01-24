@@ -30,6 +30,26 @@
 
 
 //*************************************************************************************
+// Create Event
+//*************************************************************************************
+
+MRH_Event* MRH_EVD_CreateSetEvent(MRH_Uint32 u32_Type, const void* p_Data)
+{
+    MRH_Event* p_Event = MRH_EVD_CreateEvent(u32_Type, NULL, 0);
+    
+    if (p_Event == NULL)
+    {
+        return NULL;
+    }
+    else if (MRH_EVD_SetEvent(p_Event, u32_Type, p_Data) < 0)
+    {
+        return MRH_EVD_DestroyEvent(p_Event);
+    }
+    
+    return p_Event;
+}
+
+//*************************************************************************************
 // Set Event
 //*************************************************************************************
 

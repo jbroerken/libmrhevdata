@@ -45,7 +45,22 @@
 extern "C"
 {
 #endif
+    
+    //*************************************************************************************
+    // Create Event
+    //*************************************************************************************
 
+    /**
+     *  Create and set an event with event data.
+     *
+     *  \param u32_Type The event type.
+     *  \param p_Data The event data to set with.
+     *
+     *  \return A MRH_Event on success, NULL on failure.
+     */
+    
+    extern MRH_Event* MRH_EVD_CreateSetEvent(MRH_Uint32 u32_Type, const void* p_Data);
+    
     //*************************************************************************************
     // Set Event
     //*************************************************************************************
