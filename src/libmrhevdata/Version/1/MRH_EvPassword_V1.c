@@ -118,10 +118,7 @@ int MRH_EVD_P_ToEvent_V1(MRH_Event* p_Event, MRH_Uint32 u32_Type, const void* p_
                 
             case MRH_EVENT_PASSWORD_CHECK_U:
             case MRH_EVENT_PASSWORD_SET_U:
-                if (u32_DataSize > 0)
-                {
-                    memcpy(&(p_Event->p_Data[0]), (((struct MRH_EvD_P_String_U_t*)p_Data)->p_String), u32_DataSize);
-                }
+                memcpy(&(p_Event->p_Data[0]), (((struct MRH_EvD_P_String_U_t*)p_Data)->p_String), u32_DataSize);
                 break;
                 
             case MRH_EVENT_PASSWORD_CHECK_S:
@@ -131,10 +128,7 @@ int MRH_EVD_P_ToEvent_V1(MRH_Event* p_Event, MRH_Uint32 u32_Type, const void* p_
                 
             case MRH_EVENT_PASSWORD_CUSTOM_COMMAND_U:
             case MRH_EVENT_PASSWORD_CUSTOM_COMMAND_S:
-                if (u32_DataSize > 0)
-                {
-                    memcpy((p_Event->p_Data), (((struct MRH_EvD_Base_CustomCommand_t*)p_Data)->p_Buffer), u32_DataSize);
-                }
+                memcpy((p_Event->p_Data), (((struct MRH_EvD_Base_CustomCommand_t*)p_Data)->p_Buffer), u32_DataSize);
                 break;
                 
             default:

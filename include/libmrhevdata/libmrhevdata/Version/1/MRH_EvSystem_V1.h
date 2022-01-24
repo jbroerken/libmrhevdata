@@ -31,6 +31,10 @@
 
 // Project
 
+// Pre-defined
+#define MRH_EVD_SYS_STRING_BUFFER_MAX MRH_EVENT_DATA_SIZE_MAX
+#define MRH_EVD_SYS_STRING_BUFFER_MAX_TERMINATED (MRH_EVD_SYS_STRING_BUFFER_MAX + 1)
+
 
 #ifdef __cplusplus
 extern "C"
@@ -45,6 +49,11 @@ extern "C"
      *  Event Data
      */
     
+    struct MRH_EvD_Sys_ResetRequest_U_t
+    {
+        char p_PackagePath[MRH_EVD_SYS_STRING_BUFFER_MAX_TERMINATED];
+    };
+    
     struct MRH_EvD_Sys_EventID_t
     {
         MRH_Uint32 u32_Type;
@@ -54,8 +63,14 @@ extern "C"
      *  Events
      */
     
+    // User
+    typedef struct MRH_EvD_Sys_ResetRequest_U_t MRH_EvD_Sys_ResetRequest_U;
+    
+    // Core
     typedef struct MRH_EvD_Sys_EventID_t MRH_EvD_Sys_PermissionDenied;
     typedef struct MRH_EvD_Sys_EventID_t MRH_EvD_Sys_PasswordRequired;
+    
+    // Service
     typedef struct MRH_EvD_Sys_EventID_t MRH_EvD_Sys_NotImplemented_S;
     
     //*************************************************************************************

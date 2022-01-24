@@ -198,10 +198,7 @@ int MRH_EVD_A_ToEvent_V1(MRH_Event* p_Event, MRH_Uint32 u32_Type, const void* p_
                
             case MRH_EVENT_APP_CUSTOM_COMMAND_U:
             case MRH_EVENT_APP_CUSTOM_COMMAND_S:
-                if (u32_DataSize > 0)
-                {
-                    memcpy((p_Event->p_Data), (((struct MRH_EvD_Base_CustomCommand_t*)p_Data)->p_Buffer), u32_DataSize);
-                }
+                memcpy((p_Event->p_Data), (((struct MRH_EvD_Base_CustomCommand_t*)p_Data)->p_Buffer), u32_DataSize);
                 break;
                 
             default:

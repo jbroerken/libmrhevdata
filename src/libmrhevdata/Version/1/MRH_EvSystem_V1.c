@@ -47,13 +47,18 @@ int MRH_EVD_SYS_ToEvent_V1(MRH_Event* p_Event, MRH_Uint32 u32_Type, const void* 
     
     switch (u32_Type)
     {
-        case MRH_EVENT_UNK:
-            u32_DataSize = 0;
-            break;
         case MRH_EVENT_PERMISSION_DENIED:
         case MRH_EVENT_PASSWORD_REQUIRED:
         case MRH_EVENT_NOT_IMPLEMENTED_S:
             u32_DataSize = 4; // 1 * Uint32
+            break;
+            
+        case MRH_EVENT_PS_RESET_REQUEST_U:
+            u32_DataSize = strnlen((((MRH_EvD_Sys_ResetRequest_U*)p_Data)->p_PackagePath), MRH_EVD_SYS_STRING_BUFFER_MAX );
+            break;
+            
+        case MRH_EVENT_UNK:
+            u32_DataSize = 0;
             break;
                 
         default:
@@ -97,6 +102,10 @@ int MRH_EVD_SYS_ToEvent_V1(MRH_Event* p_Event, MRH_Uint32 u32_Type, const void* 
             case MRH_EVENT_PASSWORD_REQUIRED:
             case MRH_EVENT_NOT_IMPLEMENTED_S:
                 memcpy(&(p_Event->p_Data[0]), &(((struct MRH_EvD_Sys_EventID_t*)p_Data)->u32_Type), 4);
+                break;
+                
+            case MRH_EVENT_PS_RESET_REQUEST_U:
+                memcpy(&(p_Event->p_Data[0]), &(((MRH_EvD_Sys_ResetRequest_U*)p_Data)->p_PackagePath), u32_DataSize);
                 break;
                 
             default:

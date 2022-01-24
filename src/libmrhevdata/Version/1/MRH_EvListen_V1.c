@@ -127,7 +127,7 @@ int MRH_EVD_L_ToEvent_V1(MRH_Event* p_Event, MRH_Uint32 u32_Type, const void* p_
                 memcpy(&(p_Event->p_Data[1]), &(((MRH_EvD_L_String_S*)p_Data)->u32_ID), 4);
                 memcpy(&(p_Event->p_Data[5]), &(((MRH_EvD_L_String_S*)p_Data)->u32_Part), 4);
                 
-                if (u32_DataSize > 0)
+                if (u32_DataSize > 9)
                 {
                     memcpy(&(p_Event->p_Data[9]), (((MRH_EvD_L_String_S*)p_Data)->p_String), u32_DataSize - 9);
                 }
@@ -135,10 +135,7 @@ int MRH_EVD_L_ToEvent_V1(MRH_Event* p_Event, MRH_Uint32 u32_Type, const void* p_
                
             case MRH_EVENT_LISTEN_CUSTOM_COMMAND_U:
             case MRH_EVENT_LISTEN_CUSTOM_COMMAND_S:
-                if (u32_DataSize > 0)
-                {
-                    memcpy((p_Event->p_Data), (((struct MRH_EvD_Base_CustomCommand_t*)p_Data)->p_Buffer), u32_DataSize);
-                }
+                memcpy((p_Event->p_Data), (((struct MRH_EvD_Base_CustomCommand_t*)p_Data)->p_Buffer), u32_DataSize);
                 break;
                 
             default:
