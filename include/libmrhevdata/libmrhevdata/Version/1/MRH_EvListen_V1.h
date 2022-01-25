@@ -60,6 +60,17 @@ extern "C"
         
     }MRH_EvD_L_StringType;
     
+    typedef enum
+    {
+        MRH_EVD_L_SPEECH_VOICE = 0,
+        MRH_EVD_L_SPEECH_TEXT = 1,
+        
+        MRH_EVD_L_SPEECH_TYPE_MAX = MRH_EVD_L_SPEECH_TEXT,
+        
+        MRH_EVD_L_SPEECH_TYPE_COUNT = MRH_EVD_L_SPEECH_TYPE_MAX + 1
+        
+    }MRH_EvD_L_SpeechType;
+    
     /**
      *  Event Data
      */

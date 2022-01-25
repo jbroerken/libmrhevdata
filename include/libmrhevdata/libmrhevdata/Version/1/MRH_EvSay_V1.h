@@ -62,6 +62,17 @@ extern "C"
     
     typedef enum
     {
+        MRH_EVD_S_SPEECH_VOICE = 0,
+        MRH_EVD_S_SPEECH_TEXT = 1,
+        
+        MRH_EVD_S_SPEECH_TYPE_MAX = MRH_EVD_S_SPEECH_TEXT,
+        
+        MRH_EVD_S_SPEECH_TYPE_COUNT = MRH_EVD_S_SPEECH_TYPE_MAX + 1
+        
+    }MRH_EvD_S_SpeechType;
+    
+    typedef enum
+    {
         MRH_EVD_S_NOTIFICATION_DEFAULT = 0,
         
         MRH_EVD_S_NOTIFICATION_TYPE_MAX = MRH_EVD_S_NOTIFICATION_DEFAULT,
