@@ -60,6 +60,16 @@ extern "C"
         
     }MRH_EvD_S_StringType;
     
+    typedef enum
+    {
+        MRH_EVD_S_NOTIFICATION_DEFAULT = 0,
+        
+        MRH_EVD_S_NOTIFICATION_TYPE_MAX = MRH_EVD_S_NOTIFICATION_DEFAULT,
+        
+        MRH_EVD_S_NOTIFICATION_TYPE_COUNT = MRH_EVD_S_NOTIFICATION_TYPE_MAX + 1
+        
+    }MRH_EvD_S_NotificationType;
+    
     /**
      *  Event Data
      */
@@ -83,18 +93,25 @@ extern "C"
         MRH_Uint8 u8_Method;
     };
     
+    struct MRH_EvD_S_RemoteNotification_U_t
+    {
+        MRH_Uint8 u8_Type;
+    };
+    
     /**
      *  Events
      */
     
     // User
     typedef struct MRH_EvD_S_String_U_t MRH_EvD_S_String_U;
+    typedef struct MRH_EvD_S_RemoteNotification_U_t MRH_EvD_S_RemoteNotification_U;
     typedef struct MRH_EvD_Base_CustomCommand_t MRH_EvD_S_CustomCommand_U;
     
     // Service
     typedef struct MRH_EvD_Base_ServiceAvail_S_t MRH_EvD_S_ServiceAvail_S;
     typedef struct MRH_EvD_S_String_S_t MRH_EvD_S_String_S;
     typedef struct MRH_EvD_S_GetMethod_S_t MRH_EvD_S_GetMethod_S;
+    typedef struct MRH_EvD_Base_Result_t MRH_EvD_S_RemoteNotification_S;
     typedef struct MRH_EvD_Base_CustomCommand_t MRH_EvD_S_CustomCommand_S;
     
     //*************************************************************************************
