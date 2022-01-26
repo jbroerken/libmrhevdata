@@ -146,10 +146,10 @@ int MRH_EVD_S_ToEvent_V1(MRH_Event* p_Event, MRH_Uint32 u32_Type, const void* p_
                 
             case MRH_EVENT_SAY_REMOTE_NOTIFICATION_U:
                 memcpy(&(p_Event->p_Data[0]), &(((MRH_EvD_S_RemoteNotification_U*)p_Data)->u8_Type), 1);
-                return 0;
+                break;
             case MRH_EVENT_SAY_REMOTE_NOTIFICATION_S:
                 memcpy(&(p_Event->p_Data[0]), &(((MRH_EvD_S_RemoteNotification_S*)p_Data)->u8_Result), 1);
-                return 0;
+                break;
                
             case MRH_EVENT_SAY_CUSTOM_COMMAND_U:
             case MRH_EVENT_SAY_CUSTOM_COMMAND_S:
@@ -235,7 +235,7 @@ int MRH_EVD_S_ToData_V1(void* p_Data, MRH_Uint32 u32_Type, const MRH_Event* p_Ev
         case MRH_EVENT_SAY_GET_METHOD_S:
             memcpy(&(((MRH_EvD_S_GetMethod_S*)p_Data)->u8_Result), &(p_Event->p_Data[0]), 1);
             memcpy(&(((MRH_EvD_S_GetMethod_S*)p_Data)->u8_Method), &(p_Event->p_Data[1]), 1);
-            return -1;
+            return 0;
             
         case MRH_EVENT_SAY_STRING_U:
             memcpy(&(((MRH_EvD_S_String_U*)p_Data)->u8_Type), &(p_Event->p_Data[0]), 1);
@@ -249,7 +249,7 @@ int MRH_EVD_S_ToData_V1(void* p_Data, MRH_Uint32 u32_Type, const MRH_Event* p_Ev
             }
             return 0;
         case MRH_EVENT_SAY_STRING_S:
-            memcpy(&(((MRH_EvD_S_String_U*)p_Data)->u32_ID), &(p_Event->p_Data[0]), 4);
+            memcpy(&(((MRH_EvD_S_String_S*)p_Data)->u32_ID), &(p_Event->p_Data[0]), 4);
             return 0;
             
         case MRH_EVENT_SAY_REMOTE_NOTIFICATION_U:

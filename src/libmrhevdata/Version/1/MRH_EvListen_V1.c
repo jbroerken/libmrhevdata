@@ -203,7 +203,7 @@ int MRH_EVD_L_ToData_V1(void* p_Data, MRH_Uint32 u32_Type, const MRH_Event* p_Ev
         case MRH_EVENT_LISTEN_GET_METHOD_S:
             memcpy(&(((MRH_EvD_L_GetMethod_S*)p_Data)->u8_Result), &(p_Event->p_Data[0]), 1);
             memcpy(&(((MRH_EvD_L_GetMethod_S*)p_Data)->u8_Method), &(p_Event->p_Data[1]), 1);
-            return -1;
+            return 0;
             
         case MRH_EVENT_LISTEN_STRING_S:
             memcpy(&(((MRH_EvD_L_String_S*)p_Data)->u8_Type), &(p_Event->p_Data[0]), 1);
