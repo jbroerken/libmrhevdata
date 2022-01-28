@@ -62,14 +62,14 @@ extern "C"
     
     typedef enum
     {
-        MRH_EVD_L_SPEECH_VOICE = 0,
-        MRH_EVD_L_SPEECH_TEXT = 1,
+        MRH_EVD_L_SPEECH_LOCAL = 0,
+        MRH_EVD_L_SPEECH_REMOTE = 1,
         
-        MRH_EVD_L_SPEECH_TYPE_MAX = MRH_EVD_L_SPEECH_TEXT,
+        MRH_EVD_L_SPEECH_METHOD_MAX = MRH_EVD_L_SPEECH_REMOTE,
         
-        MRH_EVD_L_SPEECH_TYPE_COUNT = MRH_EVD_L_SPEECH_TYPE_MAX + 1
+        MRH_EVD_L_SPEECH_METHOD_COUNT = MRH_EVD_L_SPEECH_METHOD_MAX + 1
         
-    }MRH_EvD_L_SpeechType;
+    }MRH_EvD_L_SpeechMethod;
     
     /**
      *  Event Data
