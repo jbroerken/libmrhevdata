@@ -47,7 +47,7 @@ int MRH_EVD_U_ToEvent_V1(MRH_Event* p_Event, MRH_Uint32 u32_Type, const void* p_
     
     switch (u32_Type)
     {
-        case MRH_EVENT_PASSWORD_AVAIL_S:
+        case MRH_EVENT_USER_AVAIL_S:
             u32_DataSize = 13; // 3 * Uint32 + 1 * Uint8
             break;
             
