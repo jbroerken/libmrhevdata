@@ -20,6 +20,14 @@ Library Structs
   libmrhevdata_Directory/Version/1/MRH_EvSystem_V1/MRH_EvD_Sys_EventID_t
   libmrhevdata_Directory/Version/1/MRH_EvListen_V1/MRH_EvD_L_String_S_t
   libmrhevdata_Directory/Version/1/MRH_EvListen_V1/MRH_EvD_L_GetMethod_S_t
+  libmrhevdata_Directory/Version/1/MRH_EvSay_V1/MRH_EvD_S_String_U_t
+  libmrhevdata_Directory/Version/1/MRH_EvSay_V1/MRH_EvD_S_String_S_t
+  libmrhevdata_Directory/Version/1/MRH_EvSay_V1/MRH_EvD_S_GetMethod_S_t
+  libmrhevdata_Directory/Version/1/MRH_EvSay_V1/MRH_EvD_S_RemoteNotification_U_t
+  libmrhevdata_Directory/Version/1/MRH_EvPassword_V1/MRH_EvD_P_String_U_t
+  libmrhevdata_Directory/Version/1/MRH_EvUser_V1/MRH_EvD_U_GetLocation_S_t
+  libmrhevdata_Directory/Version/1/MRH_EvApplication_V1/MRH_EvD_A_LaunchSOA_t
+  libmrhevdata_Directory/Version/1/MRH_EvApplication_V1/MRH_EvD_A_LaunchSOATimer_t
 
 Internal Structs
 ----------------
