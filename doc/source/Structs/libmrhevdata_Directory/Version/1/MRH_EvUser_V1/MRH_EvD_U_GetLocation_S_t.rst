@@ -21,14 +21,14 @@ Variables
       - Description
     * - u8_Result
       - If the recieved location is valid or not.
-	* - f64_Latitude
-	  - The recieved latitude.
-	* - f64_Longtitude
-	  - The recieved longtitude.
-	* - f64_Elevation
-	  - The recieved elevation.
-	* - f64_Facing
-	  - The recieved facing.
+    * - f64_Latitude
+      - The recieved latitude.
+    * - f64_Longtitude
+      - The recieved longtitude.
+    * - f64_Elevation
+      - The recieved elevation.
+    * - f64_Facing
+      - The recieved facing.
       
 
 Remarks

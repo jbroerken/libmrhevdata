@@ -86,7 +86,7 @@ extern "C"
     /**
      *  Write a application version 1 event with given application event data.
      *
-     *  \param p_Event The event to write to. The data buffer will be overwritten.
+     *  \param p_Event The event to write to. The event data will be overwritten.
      *  \param u32_Type The type of application event to write.
      *  \param p_Data The applicationevent data.
      *

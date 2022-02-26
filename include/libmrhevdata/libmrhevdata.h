@@ -68,9 +68,9 @@ extern "C"
     /**
      *  Set a event with event data.
      *
-     *  \param p_Event The event to set.
+     *  \param p_Event The event to write to. The event data will be overwritten.
      *  \param u32_Type The event type.
-     *  \param p_Data The event data to set with.
+     *  \param p_Data The event data to use.
      *
      *  \return 0 on success, -1 on failure.
      */
@@ -84,8 +84,8 @@ extern "C"
     /**
      *  Read event data from a given event.
      *
-     *  \param p_Data The data to initialize.
-     *  \param u32_Type The event type.
+     *  \param p_Data The data to write.
+     *  \param u32_Type The type of event to read.
      *  \param p_Event The event to read from.
      *
      *  \return 0 on success, -1 on failure.

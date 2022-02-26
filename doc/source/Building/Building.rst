@@ -7,7 +7,7 @@ build process to create the library from source.
 
 Supported Platforms
 -------------------
-The supported platforms for libmrh are UNIX-likes, primarily Debian-based 
+The supported platforms for libmrhevdata are UNIX-likes, primarily Debian-based 
 GNU/Linux Distributions like the Rapsberry Pi OS.
 
 Dependencies

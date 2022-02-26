@@ -109,7 +109,7 @@ extern "C"
     /**
      *  Write a listen version 1 event with given listen event data.
      *
-     *  \param p_Event The event to write to. The data buffer will be overwritten.
+     *  \param p_Event The event to write to. The event data will be overwritten.
      *  \param u32_Type The type of listen event to write.
      *  \param p_Data The listen event data.
      *
