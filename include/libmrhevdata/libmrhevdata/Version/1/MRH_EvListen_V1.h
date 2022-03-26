@@ -32,7 +32,7 @@
 #include "../MRH_EvBase.h"
 
 // Pre-defined
-#define MRH_EVD_L_STRING_BUFFER_MAX (MRH_EVENT_DATA_SIZE_MAX - 9)  // 2 * Uint32 + 1 * Uint8
+#define MRH_EVD_L_STRING_BUFFER_MAX (MRH_EVENT_DATA_SIZE_MAX - 4)  // 1 * Uint32
 #define MRH_EVD_L_STRING_BUFFER_MAX_TERMINATED (MRH_EVD_L_STRING_BUFFER_MAX + 1)
 
 
@@ -51,17 +51,6 @@ extern "C"
     
     typedef enum
     {
-        MRH_EVD_L_STRING_UNFINISHED = 0,
-        MRH_EVD_L_STRING_END = 1,
-        
-        MRH_EVD_L_STRING_TYPE_MAX = MRH_EVD_L_STRING_END,
-        
-        MRH_EVD_L_STRING_TYPE_COUNT = MRH_EVD_L_STRING_TYPE_MAX + 1
-        
-    }MRH_EvD_L_StringType;
-    
-    typedef enum
-    {
         MRH_EVD_L_SPEECH_LOCAL = 0,
         MRH_EVD_L_SPEECH_REMOTE = 1,
         
@@ -77,9 +66,7 @@ extern "C"
     
     struct MRH_EvD_L_String_S_t
     {
-        MRH_Uint8 u8_Type;
         MRH_Uint32 u32_ID;
-        MRH_Uint32 u32_Part;
         char p_String[MRH_EVD_L_STRING_BUFFER_MAX_TERMINATED];
     };
     

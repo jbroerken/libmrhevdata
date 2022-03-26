@@ -18,4 +18,4 @@ The defined value is as follows:
 
 .. code-block:: c
 
-    #define MRH_EVD_S_STRING_BUFFER_MAX (MRH_EVENT_DATA_SIZE_MAX - 9)
+    #define MRH_EVD_S_STRING_BUFFER_MAX (MRH_EVENT_DATA_SIZE_MAX - 4)

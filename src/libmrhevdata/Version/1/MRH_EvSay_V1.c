@@ -56,7 +56,7 @@ int MRH_EVD_S_ToEvent_V1(MRH_Event* p_Event, MRH_Uint32 u32_Type, const void* p_
             break;
             
         case MRH_EVENT_SAY_STRING_U:
-            u32_DataSize = 9; // 2 * Uint32 + 1 * Uint8
+            u32_DataSize = 4; // 1 * Uint32
             u32_DataSize += strnlen((((MRH_EvD_S_String_U*)p_Data)->p_String), MRH_EVD_S_STRING_BUFFER_MAX);
             break;
         case MRH_EVENT_SAY_STRING_S:
@@ -131,13 +131,11 @@ int MRH_EVD_S_ToEvent_V1(MRH_Event* p_Event, MRH_Uint32 u32_Type, const void* p_
                 break;
                 
             case MRH_EVENT_SAY_STRING_U:
-                memcpy(&(p_Event->p_Data[0]), &(((MRH_EvD_S_String_U*)p_Data)->u8_Type), 1);
-                memcpy(&(p_Event->p_Data[1]), &(((MRH_EvD_S_String_U*)p_Data)->u32_ID), 4);
-                memcpy(&(p_Event->p_Data[5]), &(((MRH_EvD_S_String_U*)p_Data)->u32_Part), 4);
+                memcpy(&(p_Event->p_Data[0]), &(((MRH_EvD_S_String_U*)p_Data)->u32_ID), 4);
                 
-                if (u32_DataSize > 9)
+                if (u32_DataSize > 4)
                 {
-                    memcpy(&(p_Event->p_Data[9]), (((MRH_EvD_S_String_U*)p_Data)->p_String), u32_DataSize - 9);
+                    memcpy(&(p_Event->p_Data[4]), (((MRH_EvD_S_String_U*)p_Data)->p_String), u32_DataSize - 4);
                 }
                 break;
             case MRH_EVENT_SAY_STRING_S:
@@ -194,7 +192,7 @@ int MRH_EVD_S_ToData_V1(void* p_Data, MRH_Uint32 u32_Type, const MRH_Event* p_Ev
             break;
             
         case MRH_EVENT_SAY_STRING_U:
-            if (p_Event->u32_DataSize < 9)
+            if (p_Event->u32_DataSize < 4)
             {
                 return -1;
             }
@@ -238,14 +236,12 @@ int MRH_EVD_S_ToData_V1(void* p_Data, MRH_Uint32 u32_Type, const MRH_Event* p_Ev
             return 0;
             
         case MRH_EVENT_SAY_STRING_U:
-            memcpy(&(((MRH_EvD_S_String_U*)p_Data)->u8_Type), &(p_Event->p_Data[0]), 1);
-            memcpy(&(((MRH_EvD_S_String_U*)p_Data)->u32_ID), &(p_Event->p_Data[1]), 4);
-            memcpy(&(((MRH_EvD_S_String_U*)p_Data)->u32_Part), &(p_Event->p_Data[5]), 4);
+            memcpy(&(((MRH_EvD_S_String_U*)p_Data)->u32_ID), &(p_Event->p_Data[0]), 4);
             memset((((MRH_EvD_S_String_U*)p_Data)->p_String), '\0', MRH_EVD_S_STRING_BUFFER_MAX_TERMINATED);
             
-            if (p_Event->u32_DataSize > 9)
+            if (p_Event->u32_DataSize > 4)
             {
-                memcpy((((MRH_EvD_S_String_U*)p_Data)->p_String), &(p_Event->p_Data[9]), p_Event->u32_DataSize - 9);
+                memcpy((((MRH_EvD_S_String_U*)p_Data)->p_String), &(p_Event->p_Data[4]), p_Event->u32_DataSize - 4);
             }
             return 0;
         case MRH_EVENT_SAY_STRING_S:

@@ -12,9 +12,7 @@ Library Enumerations
   :maxdepth: 1
 
   libmrhevdata_Directory/Version/MRH_EvBase/MRH_EvD_Base_Result
-  libmrhevdata_Directory/Version/1/MRH_EvListen_V1/MRH_EvD_L_StringType
   libmrhevdata_Directory/Version/1/MRH_EvListen_V1/MRH_EvD_L_SpeechMethod
-  libmrhevdata_Directory/Version/1/MRH_EvSay_V1/MRH_EvD_S_StringType
   libmrhevdata_Directory/Version/1/MRH_EvSay_V1/MRH_EvD_S_SpeechMethod
   libmrhevdata_Directory/Version/1/MRH_EvSay_V1/MRH_EvD_S_NotificationType
 
