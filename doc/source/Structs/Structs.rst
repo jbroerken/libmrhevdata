@@ -23,16 +23,11 @@ Library Structs
   libmrhevdata_Directory/Version/1/MRH_EvSay_V1/MRH_EvD_S_String_U_t
   libmrhevdata_Directory/Version/1/MRH_EvSay_V1/MRH_EvD_S_String_S_t
   libmrhevdata_Directory/Version/1/MRH_EvSay_V1/MRH_EvD_S_GetMethod_S_t
-  libmrhevdata_Directory/Version/1/MRH_EvSay_V1/MRH_EvD_S_RemoteNotification_U_t
+  libmrhevdata_Directory/Version/1/MRH_EvSay_V1/MRH_EvD_S_Notification_U_t
   libmrhevdata_Directory/Version/1/MRH_EvPassword_V1/MRH_EvD_P_String_U_t
   libmrhevdata_Directory/Version/1/MRH_EvUser_V1/MRH_EvD_U_GetLocation_S_t
   libmrhevdata_Directory/Version/1/MRH_EvApplication_V1/MRH_EvD_A_LaunchSOA_t
   libmrhevdata_Directory/Version/1/MRH_EvApplication_V1/MRH_EvD_A_LaunchSOATimer_t
-  libmrhevdata_Directory/Version/1/MRH_EvNotification_V1/MRH_EvD_N_Create_U_t
-  libmrhevdata_Directory/Version/1/MRH_EvNotification_V1/MRH_EvD_N_Destroy_U_t
-  libmrhevdata_Directory/Version/1/MRH_EvNotification_V1/MRH_EvD_N_Create_S_t
-  libmrhevdata_Directory/Version/1/MRH_EvNotification_V1/MRH_EvD_N_Destroy_S_t
-  libmrhevdata_Directory/Version/1/MRH_EvNotification_V1/MRH_EvD_N_GetNext_S_t
 
 Internal Structs
 ----------------

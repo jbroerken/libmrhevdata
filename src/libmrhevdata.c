@@ -91,12 +91,13 @@ int MRH_EVD_SetEvent(MRH_Event* p_Event, MRH_Uint32 u32_Type, const void* p_Data
         case MRH_EVENT_SAY_AVAIL_U:
         case MRH_EVENT_SAY_STRING_U:
         case MRH_EVENT_SAY_GET_METHOD_U:
-        case MRH_EVENT_SAY_REMOTE_NOTIFICATION_U:
+        case MRH_EVENT_SAY_NOTIFICATION_APP_U:
+        case MRH_EVENT_SAY_NOTIFICATION_SERVICE_U:
         case MRH_EVENT_SAY_CUSTOM_COMMAND_U:
         case MRH_EVENT_SAY_AVAIL_S:
         case MRH_EVENT_SAY_STRING_S:
         case MRH_EVENT_SAY_GET_METHOD_S:
-        case MRH_EVENT_SAY_REMOTE_NOTIFICATION_S:
+        case MRH_EVENT_SAY_NOTIFICATION_APP_S:
         case MRH_EVENT_SAY_CUSTOM_COMMAND_S:
             return MRH_EVD_S_ToEvent_V1(p_Event, u32_Type, p_Data);
             
@@ -154,21 +155,6 @@ int MRH_EVD_SetEvent(MRH_Event* p_Event, MRH_Uint32 u32_Type, const void* p_Data
         case MRH_EVENT_APP_CUSTOM_COMMAND_S:
             return MRH_EVD_A_ToEvent_V1(p_Event, u32_Type, p_Data);
             
-        // Notifications
-        case MRH_EVENT_NOTIFICATION_AVAIL_U:
-        case MRH_EVENT_NOTIFICATION_CREATE_APP_U:
-        case MRH_EVENT_NOTIFICATION_CREATE_SERVICE_U:
-        case MRH_EVENT_NOTIFICATION_DESTROY_APP_U:
-        case MRH_EVENT_NOTIFICATION_GET_WAITING_U:
-        case MRH_EVENT_NOTIFICATION_GET_NEXT_U:
-        case MRH_EVENT_NOTIFICATION_CUSTOM_COMMAND_U:
-        case MRH_EVENT_NOTIFICATION_AVAIL_S:
-        case MRH_EVENT_NOTIFICATION_CREATE_APP_S:
-        case MRH_EVENT_NOTIFICATION_DESTROY_APP_S:
-        case MRH_EVENT_NOTIFICATION_GET_WAITING_S:
-        case MRH_EVENT_NOTIFICATION_GET_NEXT_S:
-        case MRH_EVENT_NOTIFICATION_CUSTOM_COMMAND_S:
-            return MRH_EVD_N_ToEvent_V1(p_Event, u32_Type, p_Data);
         /**
          *  Unk
          */
@@ -220,12 +206,13 @@ int MRH_EVD_ReadEvent(void* p_Data, MRH_Uint32 u32_Type, const MRH_Event* p_Even
         case MRH_EVENT_SAY_AVAIL_U:
         case MRH_EVENT_SAY_STRING_U:
         case MRH_EVENT_SAY_GET_METHOD_U:
-        case MRH_EVENT_SAY_REMOTE_NOTIFICATION_U:
+        case MRH_EVENT_SAY_NOTIFICATION_APP_U:
+        case MRH_EVENT_SAY_NOTIFICATION_SERVICE_U:
         case MRH_EVENT_SAY_CUSTOM_COMMAND_U:
         case MRH_EVENT_SAY_AVAIL_S:
         case MRH_EVENT_SAY_STRING_S:
         case MRH_EVENT_SAY_GET_METHOD_S:
-        case MRH_EVENT_SAY_REMOTE_NOTIFICATION_S:
+        case MRH_EVENT_SAY_NOTIFICATION_APP_S:
         case MRH_EVENT_SAY_CUSTOM_COMMAND_S:
             return MRH_EVD_S_ToData_V1(p_Data, u32_Type, p_Event);
             
@@ -283,21 +270,6 @@ int MRH_EVD_ReadEvent(void* p_Data, MRH_Uint32 u32_Type, const MRH_Event* p_Even
         case MRH_EVENT_APP_CUSTOM_COMMAND_S:
             return MRH_EVD_A_ToData_V1(p_Data, u32_Type, p_Event);
             
-        // Notifications
-        case MRH_EVENT_NOTIFICATION_AVAIL_U:
-        case MRH_EVENT_NOTIFICATION_CREATE_APP_U:
-        case MRH_EVENT_NOTIFICATION_CREATE_SERVICE_U:
-        case MRH_EVENT_NOTIFICATION_DESTROY_APP_U:
-        case MRH_EVENT_NOTIFICATION_GET_WAITING_U:
-        case MRH_EVENT_NOTIFICATION_GET_NEXT_U:
-        case MRH_EVENT_NOTIFICATION_CUSTOM_COMMAND_U:
-        case MRH_EVENT_NOTIFICATION_AVAIL_S:
-        case MRH_EVENT_NOTIFICATION_CREATE_APP_S:
-        case MRH_EVENT_NOTIFICATION_DESTROY_APP_S:
-        case MRH_EVENT_NOTIFICATION_GET_WAITING_S:
-        case MRH_EVENT_NOTIFICATION_GET_NEXT_S:
-        case MRH_EVENT_NOTIFICATION_CUSTOM_COMMAND_S:
-            return MRH_EVD_N_ToData_V1(p_Data, u32_Type, p_Event);
         /**
          *  Unk
          */

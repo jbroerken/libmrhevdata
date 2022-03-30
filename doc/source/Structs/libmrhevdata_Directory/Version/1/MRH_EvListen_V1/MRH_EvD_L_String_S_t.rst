@@ -20,9 +20,9 @@ Variables
     * - Parameter
       - Description
     * - u32_ID
-      - The string id to group parts.
+      - The string id for identification.
     * - p_String
-      - The actual string characters.
+      - The string characters.
       
 
 Remarks

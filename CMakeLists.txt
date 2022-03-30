@@ -75,8 +75,7 @@ set(SRC_LIST_EVENT "${INCLUDE_DIR_PATH}/libmrhevdata/libmrhevdata/Version/MRH_Ev
                    "${INCLUDE_DIR_PATH}/libmrhevdata/libmrhevdata/MRH_EvSay.h"
                    "${INCLUDE_DIR_PATH}/libmrhevdata/libmrhevdata/MRH_EvPassword.h"
                    "${INCLUDE_DIR_PATH}/libmrhevdata/libmrhevdata/MRH_EvUser.h"
-                   "${INCLUDE_DIR_PATH}/libmrhevdata/libmrhevdata/MRH_EvApplication.h"
-                   "${INCLUDE_DIR_PATH}/libmrhevdata/libmrhevdata/MRH_EvNotification.h")
+                   "${INCLUDE_DIR_PATH}/libmrhevdata/libmrhevdata/MRH_EvApplication.h")
                    
 set(SRC_LIST_EVENT_V1 "${SRC_DIR_PATH}/libmrhevdata/Version/1/MRH_EvSystem_V1.c"
                       "${SRC_DIR_PATH}/libmrhevdata/Version/1/MRH_EvCustom_V1.c"
@@ -85,15 +84,13 @@ set(SRC_LIST_EVENT_V1 "${SRC_DIR_PATH}/libmrhevdata/Version/1/MRH_EvSystem_V1.c"
                       "${SRC_DIR_PATH}/libmrhevdata/Version/1/MRH_EvPassword_V1.c"
                       "${SRC_DIR_PATH}/libmrhevdata/Version/1/MRH_EvUser_V1.c"
                       "${SRC_DIR_PATH}/libmrhevdata/Version/1/MRH_EvApplication_V1.c"
-                      "${SRC_DIR_PATH}/libmrhevdata/Version/1/MRH_EvNotification_V1.c"
                       "${INCLUDE_DIR_PATH}/libmrhevdata/libmrhevdata/Version/1/MRH_EvSystem_V1.h"
                       "${INCLUDE_DIR_PATH}/libmrhevdata/libmrhevdata/Version/1/MRH_EvCustom_V1.h"
                       "${INCLUDE_DIR_PATH}/libmrhevdata/libmrhevdata/Version/1/MRH_EvListen_V1.h"
                       "${INCLUDE_DIR_PATH}/libmrhevdata/libmrhevdata/Version/1/MRH_EvSay_V1.h"
                       "${INCLUDE_DIR_PATH}/libmrhevdata/libmrhevdata/Version/1/MRH_EvPassword_V1.h"
                       "${INCLUDE_DIR_PATH}/libmrhevdata/libmrhevdata/Version/1/MRH_EvUser_V1.h"
-                      "${INCLUDE_DIR_PATH}/libmrhevdata/libmrhevdata/Version/1/MRH_EvApplication_V1.h"
-                      "${INCLUDE_DIR_PATH}/libmrhevdata/libmrhevdata/Version/1/MRH_EvNotification_V1.h")
+                      "${INCLUDE_DIR_PATH}/libmrhevdata/libmrhevdata/Version/1/MRH_EvApplication_V1.h")
 
 ###
 #  Public API Path

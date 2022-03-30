@@ -35,6 +35,9 @@
 #define MRH_EVD_S_STRING_BUFFER_MAX (MRH_EVENT_DATA_SIZE_MAX - 4)  // 1 * Uint32
 #define MRH_EVD_S_STRING_BUFFER_MAX_TERMINATED (MRH_EVD_S_STRING_BUFFER_MAX + 1)
 
+#define MRH_EVD_S_NOTIFICATION_BUFFER_MAX (MRH_EVENT_DATA_SIZE_MAX - 1)  // 1 * Uint8
+#define MRH_EVD_S_NOTIFICATION_BUFFER_MAX_TERMINATED (MRH_EVD_S_STRING_BUFFER_MAX + 1)
+
 
 #ifdef __cplusplus
 extern "C"
@@ -60,16 +63,6 @@ extern "C"
         
     }MRH_EvD_S_SpeechMethod;
     
-    typedef enum
-    {
-        MRH_EVD_S_NOTIFICATION_DEFAULT = 0,
-        
-        MRH_EVD_S_NOTIFICATION_TYPE_MAX = MRH_EVD_S_NOTIFICATION_DEFAULT,
-        
-        MRH_EVD_S_NOTIFICATION_TYPE_COUNT = MRH_EVD_S_NOTIFICATION_TYPE_MAX + 1
-        
-    }MRH_EvD_S_NotificationType;
-    
     /**
      *  Event Data
      */
@@ -91,9 +84,10 @@ extern "C"
         MRH_Uint8 u8_Method;
     };
     
-    struct MRH_EvD_S_RemoteNotification_U_t
+    struct MRH_EvD_S_Notification_U_t
     {
         MRH_Uint8 u8_Type;
+        char p_String[MRH_EVD_S_NOTIFICATION_BUFFER_MAX_TERMINATED];
     };
     
     /**
@@ -102,7 +96,8 @@ extern "C"
     
     // User
     typedef struct MRH_EvD_S_String_U_t MRH_EvD_S_String_U;
-    typedef struct MRH_EvD_S_RemoteNotification_U_t MRH_EvD_S_RemoteNotification_U;
+    typedef struct MRH_EvD_S_Notification_U_t MRH_EvD_S_NotificationApp_U;
+    typedef struct MRH_EvD_S_Notification_U_t MRH_EvD_S_NotificationService_U;
     typedef struct MRH_EvD_Base_CustomCommand_t MRH_EvD_S_CustomCommand_U;
     
     // Service

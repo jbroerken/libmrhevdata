@@ -27,8 +27,6 @@ Library Functions
   libmrhevdata_Directory/Version/1/MRH_EvUser_V1/MRH_EVD_U_ToData_V1
   libmrhevdata_Directory/Version/1/MRH_EvApplication_V1/MRH_EVD_A_ToEvent_V1
   libmrhevdata_Directory/Version/1/MRH_EvApplication_V1/MRH_EVD_A_ToData_V1
-  libmrhevdata_Directory/Version/1/MRH_EvNotification_V1/MRH_EVD_N_ToEvent_V1
-  libmrhevdata_Directory/Version/1/MRH_EvNotification_V1/MRH_EVD_N_ToData_V1
   libmrhevdata_Directory/MRH_EvDataRevision/MRH_GetEvDataLibraryVersionMajor
   libmrhevdata_Directory/MRH_EvDataRevision/MRH_GetEvDataLibraryVersionMinor
   libmrhevdata_Directory/MRH_EvDataRevision/MRH_GetEvDataLibraryVersionPatch

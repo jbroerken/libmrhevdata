@@ -42,12 +42,13 @@ Say Event Data Structs
   :maxdepth: 1
 
   MRH_EvD_S_String_U <../Structs/libmrhevdata_Directory/Version/1/MRH_EvSay_V1/MRH_EvD_S_String_U_t>
-  MRH_EvD_S_RemoteNotification_U <../Structs/libmrhevdata_Directory/Version/1/MRH_EvSay_V1/MRH_EvD_S_RemoteNotification_U_t>
+  MRH_EvD_S_Notification_App_U <../Structs/libmrhevdata_Directory/Version/1/MRH_EvSay_V1/MRH_EvD_S_Notification_U_t>
+  MRH_EvD_S_Notification_Service_U <../Structs/libmrhevdata_Directory/Version/1/MRH_EvSay_V1/MRH_EvD_S_Notification_U_t>
   MRH_EvD_S_CustomCommand_U <../Structs/libmrhevdata_Directory/Version/MRH_EvBase/MRH_EvD_Base_CustomCommand_t>
   MRH_EvD_S_ServiceAvail_S <../Structs/libmrhevdata_Directory/Version/MRH_EvBase/MRH_EvD_Base_ServiceAvail_S_t>
   MRH_EvD_S_String_S <../Structs/libmrhevdata_Directory/Version/1/MRH_EvSay_V1/MRH_EvD_S_String_S_t>
   MRH_EvD_S_GetMethod_S <../Structs/libmrhevdata_Directory/Version/1/MRH_EvSay_V1/MRH_EvD_S_GetMethod_S_t>
-  MRH_EvD_S_RemoteNotification_S <../Structs/libmrhevdata_Directory/Version/MRH_EvBase/MRH_EvD_Base_Result_t>
+  MRH_EvD_S_Notification_App_S <../Structs/libmrhevdata_Directory/Version/MRH_EvBase/MRH_EvD_Base_Result_t>
   MRH_EvD_S_CustomCommand_S <../Structs/libmrhevdata_Directory/Version/MRH_EvBase/MRH_EvD_Base_CustomCommand_t>
 
 Password Event Data Structs
@@ -94,20 +95,3 @@ Application Event Data Structs
   MRH_EvD_A_LaunchSOA_S <../Structs/libmrhevdata_Directory/Version/1/MRH_EvApplication_V1/MRH_EvD_A_LaunchSOA_t>
   MRH_EvD_A_LaunchSOATimer_S <../Structs/libmrhevdata_Directory/Version/1/MRH_EvApplication_V1/MRH_EvD_A_LaunchSOATimer_t>
   MRH_EvD_A_CustomCommand_S <../Structs/libmrhevdata_Directory/Version/MRH_EvBase/MRH_EvD_Base_CustomCommand_t>
-
-Notification Event Data Structs
--------------------------------
-.. toctree::
-  :maxdepth: 1
-
-  MRH_EvD_N_CreateApp_U <../Structs/libmrhevdata_Directory/Version/1/MRH_EvNotification_V1/MRH_EvD_N_Create_U_t>
-  MRH_EvD_N_CreateService_U <../Structs/libmrhevdata_Directory/Version/1/MRH_EvNotification_V1/MRH_EvD_N_Create_U_t>
-  MRH_EvD_N_DestroyApp_U <../Structs/libmrhevdata_Directory/Version/1/MRH_EvNotification_V1/MRH_EvD_N_Destroy_U_t>
-  MRH_EvD_N_CustomCommand_U <../Structs/libmrhevdata_Directory/Version/MRH_EvBase/MRH_EvD_Base_CustomCommand_t>
-  
-  MRH_EvD_N_ServiceAvail_S <../Structs/libmrhevdata_Directory/Version/MRH_EvBase/MRH_EvD_Base_ServiceAvail_S_t>
-  MRH_EvD_N_CreateApp_S <../Structs/libmrhevdata_Directory/Version/1/MRH_EvNotification_V1/MRH_EvD_N_Create_S_t>
-  MRH_EvD_N_DestroyApp_S <../Structs/libmrhevdata_Directory/Version/1/MRH_EvNotification_V1/MRH_EvD_N_Destroy_S_t>
-  MRH_EvD_N_GetWaiting_S <../Structs/libmrhevdata_Directory/Version/MRH_EvBase/MRH_EvD_Base_Result_t>
-  MRH_EvD_N_GetNext_S <../Structs/libmrhevdata_Directory/Version/1/MRH_EvNotification_V1/MRH_EvD_N_GetNext_S_t>
-  MRH_EvD_N_CustomCommand_S <../Structs/libmrhevdata_Directory/Version/MRH_EvBase/MRH_EvD_Base_CustomCommand_t>
