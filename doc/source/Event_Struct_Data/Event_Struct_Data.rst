@@ -3,8 +3,15 @@ Event Struct Data
 The library provides event data structs for known event types. Listed here 
 are all event structs for event data.
 
-Please note that there are no structs for events without event data. 
-Most events use a shared structure.
+.. note::
+
+    There are no structs for events without event data. 
+
+    
+.. note::
+
+    Most events use a basic struct for their event data.
+    
 
 System Event Data Structs
 -------------------------

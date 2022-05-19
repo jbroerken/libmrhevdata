@@ -19,6 +19,7 @@ on the libmrh source.
    :caption: Contents:
 
    Building/Building
+   Usage/Usage
    Event_Struct_Data/Event_Struct_Data
    Structs/Structs
    Enumerations/Enumerations
