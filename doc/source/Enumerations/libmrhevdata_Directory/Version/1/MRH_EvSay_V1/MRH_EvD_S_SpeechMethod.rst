@@ -20,10 +20,10 @@ The defined enumeration values are as follows:
 
 	typedef enum
 	{
-	    MRH_EVD_S_SPEECH_LOCAL = 0,
-	    MRH_EVD_S_SPEECH_REMOTE = 1,
+	    MRH_EVD_S_SPEECH_AUDIO = 0,
+	    MRH_EVD_S_SPEECH_TEXT_STRING = 1,
         
-	    MRH_EVD_S_SPEECH_METHOD_MAX = MRH_EVD_S_SPEECH_REMOTE,
+	    MRH_EVD_S_SPEECH_METHOD_MAX = MRH_EVD_S_SPEECH_TEXT_STRING,
         
 	    MRH_EVD_S_SPEECH_METHOD_COUNT = MRH_EVD_S_SPEECH_METHOD_MAX + 1
         
@@ -39,10 +39,10 @@ The meaning behind the enumeration values is as follows:
 
     * - Enumeration
       - Description
-    * - MRH_EVD_S_SPEECH_LOCAL
-      - The speech output comes from a local source.
-    * - MRH_EVD_S_SPEECH_REMOTE
-      - The speech output comes from a remote source.
+    * - MRH_EVD_S_SPEECH_AUDIO
+      - The speech output is performed as a audio buffer.
+    * - MRH_EVD_S_SPEECH_TEXT_STRING
+      - The speech output is performed as a text string.
     * - MRH_EVD_S_SPEECH_METHOD_MAX
       - The highest value in this enumeration.
     * - MRH_EVD_S_SPEECH_METHOD_COUNT
